@@ -75,4 +75,24 @@ setInterval(() => {
   }
 }, 1000)
 
+
+io.of('error')
+.on('connection', (socket) => {
+
+  console.log('someone conecting to channel')
+
+  socket.on('disconnect', () => {
+
+    console.log('user Disconnect from channel')
+  })
+
+  socket.on('force-error', data => {
+    socket.disconnect()
+  })
+
+})
+
+
+
+
 console.log('Mock Socket IO server start....')
