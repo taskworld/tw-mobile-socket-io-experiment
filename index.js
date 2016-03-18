@@ -35,10 +35,8 @@ io.of('channels')
 
   socket.on('echo', (data) => {
 
-    setTimeout(() => {
-      const response = 'Channels:' + 'Hello World'
-      socket.emit('echo', response)
-    }, 1000)
+    console.log('someone echo channels')
+    socket.emit('echo', data)
   })
 })
 
