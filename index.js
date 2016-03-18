@@ -5,7 +5,7 @@ var http = require('http')
 var server  = http.createServer(app)
 var io = require('socket.io')(server);
 
-server.listen(9002)
+server.listen(9003)
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
