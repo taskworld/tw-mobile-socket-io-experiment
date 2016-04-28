@@ -28,7 +28,7 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       // var root = io.connect('https://staging-us-socket.taskworld.com/task');
-      var root = io.connect('https://enterprise-us-socket.taskworld.com/task');
+      var root = io.connect('http://localhost:9002/chat');
 
       // task: 56fe4ee129ba440fb4746f94
       // token: 93a9e72a1038c6585286d93982fbdf69fbf6c5eb9c5be97cec1bf2a4a2eb28ec
@@ -57,20 +57,12 @@
         root.emit('leave-all', { })
       });
 
-      root.on('change-comment', function(msg){
-        $('#messages').append($('<li>').text('Message change-comment: ' + JSON.stringify(msg)));
-      });
-
-      root.on('change-task', function(msg){
-        $('#messages').append($('<li>').text('Message change-task: ' + JSON.stringify(msg)));
+      root.on('chat', function(msg){
+        $('#messages').append($('<li>').text('Message chat: ' + JSON.stringify(msg)));
       });
 
       root.on('auth', function(msg) {
-        $('#messages').append($('<li>').text('AUTH: ' + JSON.stringify(msg)));
-      })
-
-      root.on('join', function(msg) {
-        $('#messages').append($('<li>').text('JOIN: ' + JSON.stringify(msg)));
+        $('#messages').append($('<li>').text('auth: ' + JSON.stringify(msg)));
       })
 
 

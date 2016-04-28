@@ -24,20 +24,20 @@
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
-      var root = io.connect('https://tw2-staging-socket.taskworld.com:443');
-      $('#f1').submit(function(){
+      // var root = io.connect('https://staging-sg-socket-experiment.taskworld.com/');
+      // $('#f1').submit(function(){
+      //
+      //   root.emit('chat message', $('#m').val());
+      //   $('#m').val('');
+      //   return false;
+      // });
+      //
+      // root.on('chat message', function(msg){
+      //   $('#messages').append($('<li>').text('Team:'+msg));
+      // });
 
-        root.emit('chat message', $('#m').val());
-        $('#m').val('');
-        return false;
-      });
 
-      root.on('chat message', function(msg){
-        $('#messages').append($('<li>').text('Team:'+msg));
-      });
-
-
-      var channels = io.connect('https://tw2-staging-socket.taskworld.com:443/channels')
+      var channels = io.connect('https://staging-sg-socket-experiment.taskworld.com/channels')
 
       $('#f1').submit(function(){
 
@@ -50,12 +50,12 @@
         $('#messages').append($('<li>').text(msg));
       });
 
-      var channel1 = io.connect('https://tw2-staging-socket.taskworld.com:443/channel')
+      var channel1 = io.connect('https://staging-sg-socket-experiment.taskworld.com/channel')
 
       channel1.emit('join', 'channel2')
       channel1.emit('join', 'channel1')
       channel1.on('echo', function(msg){
-        $('#messages').append($('<li>').text(msg + ' from client#1'));
+        // $('#messages').append($('<li>').text(msg + ' from client#1'));
       });
 
       channel1.emit('leave', 'channel1')

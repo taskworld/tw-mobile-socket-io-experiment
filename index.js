@@ -14,9 +14,11 @@ app.get('/', function(req, res){
 //ROOM
 io.on('connection', (socket) => {
   console.log('someone conecting')
+
   socket.on('disconnect', () => {
     console.log('user Disconnect')
   })
+
   socket.on('echo', (data) => {
     socket.emit('echo', data)
   })
@@ -37,6 +39,7 @@ io.of('channels')
 
     console.log('someone echo channels')
     socket.emit('echo', data)
+    socket.broadcast.emit('echo', data)
   })
 })
 
